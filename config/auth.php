@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'petugas',
     ],
 
     /*
@@ -38,7 +38,20 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            // 'provider' => 'users',
+            'provider' => 'petugas',
+        ],
+        'bagianti' => [
+            'driver' => 'session',
+            'provider' => 'bagianti',
+        ],
+        'administrasi' => [
+            'driver' => 'session',
+            'provider' => 'administrasi',
+        ],
+        'gurubk' => [
+            'driver' => 'session',
+            'provider' => 'gurubk',
         ],
     ],
 
@@ -69,6 +82,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Petugas::class,
+        ]
     ],
 
     /*
@@ -92,7 +110,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'petugas',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
